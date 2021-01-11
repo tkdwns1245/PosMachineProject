@@ -12,132 +12,109 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
 
-public class LoginFrame extends FrameTemplete {
-	// Component ∫Øºˆ º±æ
-		Color ElectronBlue = new Color(9, 132, 227);
-		Color OrangeVille = new Color(225, 112, 85);
-		Font font1 = new Font("∏º¿∫ ∞ÌµÒ",Font.BOLD, 40);
-		Font font2 = new Font("∏º¿∫ ∞ÌµÒ",Font.PLAIN, 15);
-		Font font3 = new Font("∏º¿∫ ∞ÌµÒ",Font.BOLD, 12);
-		
-		static JPanel mainPanel = new JPanel();
-		static JPanel northPanel = new JPanel();
-		JPanel northTop = new JPanel();
-		JPanel northCen = new JPanel();
-		JPanel northBot = new JPanel();
-		JPanel northLeft = new JPanel();
-		JPanel northRight = new JPanel();
-		
-		static JPanel southPanel = new JPanel();
-		static JPanel westPanel = new JPanel();
-		static JPanel eastPanel = new JPanel();
-		JPanel mTopPanel = new JPanel();
-		JPanel mCenPanel = new JPanel();
-		JPanel mBotPanel = new JPanel();
-				
-		JLabel title = new JLabel("SRL¿« POSMachine");
-		JLabel id = new JLabel("æ∆ ¿Ã µ  : ");  
-		JLabel password = new JLabel("∆–Ω∫øˆµÂ : ");
-		JTextField idTF = new JTextField(10);
-		JTextField passwordTF = new JTextField(10);
+public class LoginFrame extends FrameTemplete implements ActionListener {
 
-		JButton loginBtn = new JButton("∑Œ±◊¿Œ");
-		JButton regiBtn = new JButton("»∏ø¯∞°¿‘");	
-		JButton exitBtn = new JButton("¡æ ∑·");	 
-
- 	// ∑Œ±◊¿Œ ±‚¥… ±∏«ˆ
 	public LoginFrame() {
-	
-		loginBtn.addActionListener( new ActionListener() {
-			 
-	        public void actionPerformed(ActionEvent e) {
-	                String id = "SLR";
-	                String pass = "1234";
-	                    if(id.equals(idTF.getText()) &&  pass.equals(passwordTF.getText())) {
-
-	                            JOptionPane.showMessageDialog( null, "∑Œ±◊¿Œ º∫∞¯" );
-	                    } else {
-
-	                        JOptionPane.showMessageDialog( null , " ∑Œ±◊¿Œ Ω«∆– ");
-	                    }
-		
-            }
-    } );
-		
-
 	}
-		//Component ª˝º∫
-	public void CreateComponent() {
 
-		LoginFrame fr = new LoginFrame();
-		Container cp = fr.getContentPane();
+	public void UserAuth(JButton loginBtn) {
+
+		loginBtn.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				String id = "SLR";
+				String pass = "1234";
+				if (id.equals(idTF.getText()) && pass.equals(passwordTF.getText())) {
+
+					JOptionPane.showMessageDialog(null, "Î°úÍ∑∏Ïù∏ ÏÑ±Í≥µ");
+				} else {
+
+					JOptionPane.showMessageDialog(null, " Î°úÍ∑∏Ïù∏ Ïã§Ìå® ");
+				}
+			}
+		});
+	}
+
+	@Override
+	public void CreateComponent() {
 		
-		cp.add(northPanel, BorderLayout.NORTH);
-		cp.add(mainPanel, BorderLayout.CENTER);
-		cp.add(eastPanel, BorderLayout.EAST);
-		cp.add(westPanel, BorderLayout.WEST);
-		cp.add(southPanel, BorderLayout.SOUTH);
-		// «¡∑π¿” ¿ß¬ ∆–≥Œ 
+		// BorderLayOut (Îèô,ÏÑú,ÎÇ®,Î∂Å,Ï§ëÏïô)
+		add(northPanel, BorderLayout.NORTH);
+		add(mainPanel, BorderLayout.CENTER);
+		add(eastPanel, BorderLayout.EAST);
+		add(westPanel, BorderLayout.WEST);
+		add(southPanel, BorderLayout.SOUTH);
+
+
+		// ÌîÑÎ†àÏûÑ Î∂ÅÏ™ΩÌå®ÎÑê
+
 		northPanel.add(northTop, BorderLayout.NORTH);
-		northTop.setPreferredSize(new Dimension(1000, 5));
+		northTop.setPreferredSize(new Dimension(1000, 0));
 
 		northPanel.add(northBot, BorderLayout.SOUTH);
-		northBot.setPreferredSize(new Dimension(1000, 5));
+		northBot.setPreferredSize(new Dimension(1000, 10));
 
 		northPanel.add(northLeft, BorderLayout.EAST);
-		northLeft.setPreferredSize(new Dimension(100, 60));
-		
-		
+		northLeft.setPreferredSize(new Dimension(100, 35));
+
 		northPanel.add(northCen, BorderLayout.CENTER);
-		northCen.setBackground(OrangeVille);
-		northCen.setPreferredSize(new Dimension(750, 60));
+		northCen.setPreferredSize(new Dimension(750, 35));
 		northCen.add(title);
-		northCen.setBackground(OrangeVille);
 		title.setFont(font1);
-		
+
+
 		northPanel.add(northRight, BorderLayout.WEST);
-		northRight.setPreferredSize(new Dimension(100, 60));
+		northRight.setPreferredSize(new Dimension(100, 35));
 		northRight.add(exitBtn);
-		exitBtn.setPreferredSize(new Dimension(70, 40));
+		
+		exitBtn.setPreferredSize(new Dimension(80, 25));
+		exitBtn.addActionListener(this);
 		exitBtn.setFont(font3);
 
+		// Í∏∞ÌÉÄ Ìå®ÎÑê ÏúÑÏπòÏ°∞Ï†ï
 
-		northPanel.setPreferredSize(new Dimension(1000, 250));
+		northPanel.setPreferredSize(new Dimension(1000, 240));
 		westPanel.setPreferredSize(new Dimension(300, 600));
 		eastPanel.setPreferredSize(new Dimension(300, 600));
 		southPanel.setPreferredSize(new Dimension(1000, 190));
-		mainPanel.setBackground(ElectronBlue);
+		mainPanel.setBackground(FadePoster);
+		mainPanel.setBorder(new TitledBorder(new LineBorder(Color.BLACK,1)));
 
-	// mainPanel ±∏º∫ 
+		// mainPanel Íµ¨ÏÑ±
 		mainPanel.add(mTopPanel);
 		mTopPanel.add(id);
 		mTopPanel.add(idTF);
 		id.setFont(font2);
 		mTopPanel.setPreferredSize(new Dimension(250, 30));
-		mTopPanel.setBackground(ElectronBlue);
+		mTopPanel.setBackground(FadePoster);
 
 		mainPanel.add(mCenPanel);
 		mCenPanel.add(password);
 		password.setFont(font2);
 		mCenPanel.add(passwordTF);
 		mCenPanel.setPreferredSize(new Dimension(250, 30));
-		mCenPanel.setBackground(ElectronBlue);
+		mCenPanel.setBackground(FadePoster);
 
-		
 		mainPanel.add(mBotPanel);
 		mBotPanel.add(loginBtn);
 		mBotPanel.add(regiBtn);
-		mBotPanel.setPreferredSize(new Dimension(250, 30));
-		mBotPanel.setBackground(ElectronBlue);
-
+		mBotPanel.setPreferredSize(new Dimension(250, 40));
+		mBotPanel.setBackground(FadePoster);
 	}
-	
-	
+
+	// Ï¢ÖÎ£åÎ≤ÑÌäº Íµ¨ÌòÑ(Î¨¥Î™ÖÌÅ¥ÎûòÏä§)
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == exitBtn)
+			System.exit(0);
+	}
+
 	public static void main(String[] args) {
 		LoginFrame fr = new LoginFrame();
+		fr.UserAuth(loginBtn);
 		fr.CreateComponent();
-	
-	
 	}
 }
