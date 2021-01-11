@@ -49,7 +49,7 @@ public class LoginFrame extends FrameTemplete implements ActionListener {
 		add(southPanel, BorderLayout.SOUTH);
 
 
-		// 프레임 북쪽패널
+		// 프레임 북쪽패널 
 
 		northPanel.add(northTop, BorderLayout.NORTH);
 		northTop.setPreferredSize(new Dimension(1000, 0));

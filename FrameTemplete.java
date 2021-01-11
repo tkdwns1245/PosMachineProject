@@ -14,10 +14,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
-
 public abstract class FrameTemplete extends JFrame { 
 	
-	// Component 변수 선언
+	// Component 변수 선언 
 	Color FadePoster = new Color(116, 185, 255);
 	Font font1 = new Font("맑은 고딕",Font.BOLD, 20);
 	Font font2 = new Font("맑은 고딕",Font.PLAIN,13);
