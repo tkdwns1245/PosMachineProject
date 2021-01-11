@@ -51,7 +51,7 @@ public abstract class FrameTemplete extends JFrame {
 	public FrameTemplete() {
         setLocationRelativeTo(null);
         this.setTitle("SLR의 PosMachine");
-		this.setResizable(false);
+		this.setResizable(false);  
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		this.setSize(1000, 600);
