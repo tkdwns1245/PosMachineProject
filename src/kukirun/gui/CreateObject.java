@@ -175,28 +175,28 @@ public class CreateObject extends JFrame{
 	
 	public JPanel setPanel(int sizeX,int sizeY,int coordiX,int coordiY) {
 		JPanel New=new JPanel();
-		New.setSize(sizeX,sizeY);
+		New.setSize(sizeX*FrameTemplete2.width/1000,sizeY*FrameTemplete2.height/600);
 		New.setLocation(coordiX,coordiY);
 		return New;
 	}
 	
 	public JLabel setLabel(int sizeX,int sizeY,int coordiX,int coordiY,String Text) {
 		JLabel New=new JLabel(Text);
-		New.setSize(sizeX,sizeY);
+		New.setSize(sizeX*FrameTemplete2.width/1000,sizeY*FrameTemplete2.height/600);
 		New.setLocation(coordiX,coordiY);
 		return New;
 	}
 	
 	public JTextField setTextField(int sizeX,int sizeY,int coordiX,int coordiY,int length) {
 		JTextField New=new JTextField(length);
-		New.setSize(sizeX,sizeY);
+		New.setSize(sizeX*FrameTemplete2.width/1000,sizeY*FrameTemplete2.height/600);
 		New.setLocation(coordiX,coordiY);
 		return New;
 	}
 	
 	public JButton setButton(int sizeX,int sizeY,int coordiX,int coordiY,String Text) {
 		JButton New=new JButton(Text);
-		New.setSize(sizeX,sizeY);
+		New.setSize(sizeX*FrameTemplete2.width/1000,sizeY*FrameTemplete2.height/600);
 		New.setLocation(coordiX,coordiY);
 		return New;
 	}

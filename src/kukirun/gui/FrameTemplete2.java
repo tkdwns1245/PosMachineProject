@@ -36,18 +36,18 @@ public abstract class FrameTemplete2 extends JFrame {
 	// Component 변수 선언
 
 	JPanel mainPanel= new JPanel();
-	JPanel loginPanel= CO.setPanel(width*3/10,height/4, width*35/100,height*225/1000);
-	JPanel titlePanel= CO.setPanel(width*4/10,height*50/600, width*3/10,height/20);
+	JPanel loginPanel= CO.setPanel(300,150,350,153);
+	JPanel titlePanel= CO.setPanel(400,50, 300,30);
 	
-	JLabel title=CO.setLabel			(width*3/10, height/6, width*4/10, height/60*5, "POSmachine");
-	JLabel id=CO.setLabel				(width/10, height/30, width*60/1000, height*30/600, "아 이 디  : ");
-	JLabel password=CO.setLabel			(width/10, height/30, width*60/1000, height*70/600, "패스워드 : ");
-	JTextField idTF=CO.setTextField		(width/1000*100, height/600*20, width/1000*150, height/600*30, 10);
-	JTextField passwordTF=CO.setTextField(width/1000*100, height/600*20, width/1000*150, height/600*70, 10);
+	JLabel title=CO.setLabel			(300, 100, 400, 50, "POSmachine");
+	JLabel id=CO.setLabel				(100, 20, 60, 30, "아 이 디  : ");
+	JLabel password=CO.setLabel			(100, 20, 60, 70, "패스워드 : ");
+	JTextField idTF=CO.setTextField		(100, 20, 150, 30, 10);
+	JTextField passwordTF=CO.setTextField(100, 20, 150, 70, 10);
 
-	JButton loginBtn=CO.setButton(width/1000*90, height/600*30, width/1000*40, height/600*110, "로그인");	
-	JButton regiBtn=CO.setButton(width/1000*90, height/600*30, width/1000*150, height/600*110, "회원가입"); 
-	JButton exitBtn=CO.setButton(width/1000*90, height/600*30, width/1000*850, height/600*500, "종료");
+	JButton loginBtn=CO.setButton(90, 30, 40,110, "로그인");	
+	JButton regiBtn=CO.setButton(90, 30, 150, 110, "회원가입"); 
+	JButton exitBtn=CO.setButton(90, 30, 850, 500, "종료");
 	
 	
 	public void guiHelp()
