@@ -39,9 +39,7 @@ public class LoginFrame2 extends FrameTemplete2 implements ActionListener {
 
 	public static void main(String[] args) {
 		LoginFrame2 fr = new LoginFrame2();
-		fr.addGui();
-		//fr.guiFunction();
-		//fr.guiHelp();
+		fr.showGui();
 	
 
 	}
