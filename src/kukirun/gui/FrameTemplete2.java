@@ -27,18 +27,18 @@ import java.awt.*;
 
 
 public abstract class FrameTemplete2 extends JFrame { 
-	static Container con;
-	static int width=1000;
-	static int height=600;
+	static Container con; 
+	static int width=1000; //필수 요소
+	static int height=600; //필수 요소
 	
 
 	
 	
 	// Component 변수 선언
 
-	JPanel mainPanel= new JPanel();
-	JPanel initPanel= new JPanel();
-	CreateObject CO=new CreateObject(mainPanel,width,height,initPanel);
+	JPanel mainPanel= new JPanel(); //필수 요소
+	JPanel initPanel= new JPanel(); //필수 요소
+	CreateObject CO=new CreateObject(mainPanel,width,height,initPanel); //필수 요소
 	
 
 	JPanel loginPanel= CO.setPanel(300,150,350,153,mainPanel);
@@ -149,26 +149,7 @@ public abstract class FrameTemplete2 extends JFrame {
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		this.setSize(width, height);
-		initPanel.setSize(width, height);
-		
-
-
-//		this.addComponentListener(new ComponentAdapter() {
-//
-//			
-//			@Override
-//			public void componentResized(ComponentEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//				height=getHeight();
-//				width=getWidth();
-//				
-//				resizeGui();
-//				//showGui();
-//			}
-//			
-//		});
-		
+		initPanel.setSize(width, height); //필수 요소
 
 		
 	}  
