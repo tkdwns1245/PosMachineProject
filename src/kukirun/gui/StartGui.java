@@ -18,37 +18,20 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 
-public class LoginFrame2 extends FrameTemplete2 implements ActionListener {
+public class StartGui{
 
 	// 클래스 생성자
-	public LoginFrame2() {
+	public StartGui() {
 	}
 
-
-
-
-
-	// 종료버튼 구현(무명클래스)
-	@Override
-	public void actionPerformed(ActionEvent e) {
-//		if (e.getSource() == exitBtn)
-//			System.exit(0);
-		
-		
-	}
 
 	public static void main(String[] args) {
-		CreateObject.guiHelpFunction=1;
-		LoginFrame2 fr = new LoginFrame2();
+		//CreateObject.guiHelpFunction=1;
+		Mainpage fr = new Mainpage();
 		fr.addGui();
 		if(CreateObject.guiHelpFunction!=1) fr.guiFunction();
 	
 
 	}
 
-	@Override
-	public void CreateComponent() {
-		// TODO Auto-generated method stub
-		
-	}
 }

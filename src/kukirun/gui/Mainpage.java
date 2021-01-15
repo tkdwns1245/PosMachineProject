@@ -26,19 +26,16 @@ import javax.swing.JTextField;
 import java.awt.*;
 
 
-public abstract class FrameTemplete2 extends JFrame { 
-	static Container con; 
+public class Mainpage extends JFrame { 
+	static Container con;
 	static int width=1000; //필수 요소
 	static int height=600; //필수 요소
 	
 
-	
-	
 	// Component 변수 선언
 
 	JPanel mainPanel= new JPanel(); //필수 요소
-	JPanel initPanel= new JPanel(); //필수 요소
-	CreateObject CO=new CreateObject(mainPanel,width,height,initPanel); //필수 요소
+	CreateObject CO=new CreateObject(mainPanel,width,height); //필수 요소
 	
 
 	JPanel loginPanel= CO.setPanel(300,150,350,153,mainPanel);
@@ -51,7 +48,7 @@ public abstract class FrameTemplete2 extends JFrame {
 	JTextField passwordTF=CO.setTextField(100, 20, 150, 70, 10,loginPanel);
 
 	JButton loginBtn=CO.setButton(90, 30, 40,110, "로그인",loginPanel,12);	
-	JButton regiBtn=CO.setButton(90, 30, 150, 110, "회원가입",loginPanel,12); 
+	JButton regiBtn=CO.setButton(90, 30, 180, 110, "회원가입",loginPanel,12); 
 	JButton exitBtn=CO.setButton(90, 30, 850, 500, "종료",mainPanel,12);
 	
 	
@@ -128,7 +125,7 @@ public abstract class FrameTemplete2 extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			System.out.println(mainPanel.getComponent(3));
+			//mainPanel.setVisible(false);
 
 		}
 	});
@@ -141,7 +138,7 @@ public abstract class FrameTemplete2 extends JFrame {
 
 
 	
-	public FrameTemplete2() {
+	public Mainpage() {
 		
       
         this.setTitle("SLR의 PosMachine");
@@ -149,12 +146,10 @@ public abstract class FrameTemplete2 extends JFrame {
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		this.setSize(width, height);
-		initPanel.setSize(width, height); //필수 요소
 
 		
 	}  
 	
 
 
-	public abstract void CreateComponent();
 }

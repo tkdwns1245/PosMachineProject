@@ -30,16 +30,14 @@ public class CreateObject extends JFrame{
 
 	static int guiHelpFunction=0;
 	JPanel mainPanel;
-	JPanel initPanel;
+	float initX,initY;
 	
 	
-	public CreateObject(JPanel panel,int width,int height,JPanel initPanel)
+	public CreateObject(JPanel panel,int width,int height)
 	{
 		this.mainPanel=panel;
-		this.initPanel=initPanel;
-		
-
-	
+		this.initX=width;
+		this.initY=height;
 	}
 	
 	MouseAdapter moveObject(JButton object,JPanel mainPanel) {
@@ -233,9 +231,6 @@ public class CreateObject extends JFrame{
 				float presentX=mainPanel.getWidth();
 				float presentY=mainPanel.getHeight();
 				
-				float initX=initPanel.getWidth();
-				float initY=initPanel.getHeight();
-				
 				float ratioX=presentX/initX; if(ratioX<1) ratioX=1;
 				float ratioY=presentY/initY; if(ratioY<1) ratioY=1;
 
@@ -261,9 +256,6 @@ public class CreateObject extends JFrame{
 				// TODO Auto-generated method stub
 				float presentX=mainPanel.getWidth();
 				float presentY=mainPanel.getHeight();
-				
-				float initX=initPanel.getWidth();
-				float initY=initPanel.getHeight();
 				
 				float ratioX=presentX/initX; if(ratioX<1) ratioX=1;
 				float ratioY=presentY/initY; if(ratioY<1) ratioY=1;
@@ -291,10 +283,7 @@ public class CreateObject extends JFrame{
 				// TODO Auto-generated method stub
 				float presentX=mainPanel.getWidth();
 				float presentY=mainPanel.getHeight();
-				
-				float initX=initPanel.getWidth();
-				float initY=initPanel.getHeight();
-				
+
 				float ratioX=presentX/initX; if(ratioX<1) ratioX=1;
 				float ratioY=presentY/initY; if(ratioY<1) ratioY=1;
 
@@ -322,11 +311,9 @@ public class CreateObject extends JFrame{
 				float presentX=mainPanel.getWidth();
 				float presentY=mainPanel.getHeight();
 				
-				float initX=initPanel.getWidth();
-				float initY=initPanel.getHeight();
-				
 				float ratioX=presentX/initX; if(ratioX<1) ratioX=1;
 				float ratioY=presentY/initY; if(ratioY<1) ratioY=1;
+				
 				New.setFont(new Font(New.getFont().getName(), New.getFont().getStyle(),(int)(fontsize*ratioX)));
 				re_size(New,(int) (sizeX*ratioX),(int) (sizeY*ratioY),(int) (coordiX*ratioX),(int) (coordiY*ratioY));
 			}
