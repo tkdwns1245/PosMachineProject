@@ -216,15 +216,17 @@ public class CreateObject extends JFrame{
 	}
 
 	
-	public JPanel setPanel(int sizeX,int sizeY,int coordiX,int coordiY,JPanel panel) {
+	public JPanel setPanel(int sizeX,int sizeY,int coordiX,int coordiY,JPanel panel) { //panel은 이 버튼이 소속 될 판넬
 		JPanel New=new JPanel();
 		New.setSize(sizeX,sizeY);
 		New.setLocation(coordiX,coordiY);
 		if(guiHelpFunction==1) New.addMouseListener(selectObject(New, panel));
-
+		
+		if(panel.getLayout()==null)
+		{
 		mainPanel.addComponentListener(new ComponentAdapter() {
 
-			
+		
 			@Override
 			public void componentResized(ComponentEvent e) {
 				// TODO Auto-generated method stub
@@ -237,20 +239,21 @@ public class CreateObject extends JFrame{
 				re_size(New,(int) (sizeX*ratioX),(int) (sizeY*ratioY),(int) (coordiX*ratioX),(int) (coordiY*ratioY));
 			}
 		});
+		}
 		
 		return New;
 	}
 	
 	
-	public JLabel setLabel(int sizeX,int sizeY,int coordiX,int coordiY,String Text,JPanel panel,int fontsize) {
+	public JLabel setLabel(int sizeX,int sizeY,int coordiX,int coordiY,String Text,JPanel panel,int fontsize) { //panel은 이 버튼이 소속 될 판넬
 		JLabel New=new JLabel(Text);
 		New.setSize(sizeX,sizeY);
 		New.setLocation(coordiX,coordiY);
 		if(guiHelpFunction==1) New.addMouseListener(selectObject(New, panel));
 		
+		if(panel.getLayout()==null)
+		{
 		mainPanel.addComponentListener(new ComponentAdapter() {
-
-			
 			@Override
 			public void componentResized(ComponentEvent e) {
 				// TODO Auto-generated method stub
@@ -266,18 +269,22 @@ public class CreateObject extends JFrame{
 
 			}
 		});
+		}
+		
+		
 		return New;
 	}
 	
-	public JTextField setTextField(int sizeX,int sizeY,int coordiX,int coordiY,int length,JPanel panel) {
+	public JTextField setTextField(int sizeX,int sizeY,int coordiX,int coordiY,int length,JPanel panel) { //panel은 이 버튼이 소속 될 판넬
 		JTextField New=new JTextField(length);
 		New.setSize(sizeX,sizeY);
 		New.setLocation(coordiX,coordiY);
 		if(guiHelpFunction==1) New.addMouseListener(selectObject(New, panel));
 		
+		if(panel.getLayout()==null)
+		{
 		mainPanel.addComponentListener(new ComponentAdapter() {
 
-			
 			@Override
 			public void componentResized(ComponentEvent e) {
 				// TODO Auto-generated method stub
@@ -290,11 +297,12 @@ public class CreateObject extends JFrame{
 				re_size(New,(int) (sizeX*ratioX),(int) (sizeY*ratioY),(int) (coordiX*ratioX),(int) (coordiY*ratioY));
 			}
 		});
+		}
 		
 		return New;
 	}
 	
-	public JButton setButton(int sizeX,int sizeY,int coordiX,int coordiY,String Text,JPanel panel,int fontsize) {
+	public JButton setButton(int sizeX,int sizeY,int coordiX,int coordiY,String Text,JPanel panel,int fontsize) { //panel은 이 버튼이 소속 될 판넬
 		
 		JButton New=new JButton(Text);
 		
@@ -302,9 +310,11 @@ public class CreateObject extends JFrame{
 		New.setLocation(coordiX,coordiY);
 		if(guiHelpFunction==1) New.addMouseListener(selectObject(New, panel));
 		
+		
+		if(panel.getLayout()==null)
+		{
 		mainPanel.addComponentListener(new ComponentAdapter() {
 
-			
 			@Override
 			public void componentResized(ComponentEvent e) {
 				// TODO Auto-generated method stub
@@ -318,7 +328,7 @@ public class CreateObject extends JFrame{
 				re_size(New,(int) (sizeX*ratioX),(int) (sizeY*ratioY),(int) (coordiX*ratioX),(int) (coordiY*ratioY));
 			}
 		});
-
+		}
 		
 		return New;
 	}
