@@ -36,10 +36,10 @@ public class LoginFrame2 extends FrameTemplete2 implements ActionListener {
 	}
 
 	public static void main(String[] args) {
+		CreateObject.guiHelpFunction=1;
 		LoginFrame2 fr = new LoginFrame2();
 		fr.addGui();
-		//fr.guiFunction();
-		//fr.guiHelp();
+		if(CreateObject.guiHelpFunction!=1) fr.guiFunction();
 	
 
 	}
