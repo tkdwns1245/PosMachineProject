@@ -2,7 +2,6 @@ package kukirun.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.KeyEvent;
@@ -31,52 +30,215 @@ public abstract class FrameTemplete2 extends JFrame {
 	static int width=1000;
 	static int height=600;
 	
-	CreateObject CO=new CreateObject();
-	
-	// Component 변수 선언
 
-	JPanel mainPanel= new JPanel();
-	JPanel loginPanel= CO.setPanel(width*3/10,height/4, width*35/100,height*225/1000);
-	JPanel titlePanel= CO.setPanel(width*4/10,height*50/600, width*3/10,height/20);
 	
-	JLabel title=CO.setLabel			(width*3/10, height/6, width*4/10, height/60*5, "POSmachine");
-	JLabel id=CO.setLabel				(width/10, height/30, width*60/1000, height*30/600, "아 이 디  : ");
-	JLabel password=CO.setLabel			(width/10, height/30, width*60/1000, height*70/600, "패스워드 : ");
-	JTextField idTF=CO.setTextField		(width/1000*100, height/600*20, width/1000*150, height/600*30, 10);
-	JTextField passwordTF=CO.setTextField(width/1000*100, height/600*20, width/1000*150, height/600*70, 10);
-
-	JButton loginBtn=CO.setButton(width/1000*90, height/600*30, width/1000*40, height/600*110, "로그인");	
-	JButton regiBtn=CO.setButton(width/1000*90, height/600*30, width/1000*150, height/600*110, "회원가입"); 
-	JButton exitBtn=CO.setButton(width/1000*90, height/600*30, width/1000*850, height/600*500, "종료");
-	
-	
-	public void guiHelp()
-	{
-		loginPanel.addMouseListener(CO.selectObject(loginPanel,mainPanel));
-		titlePanel.addMouseListener(CO.selectObject(titlePanel,mainPanel));
-		
-		title.addMouseListener(CO.selectObject(title,mainPanel));
-		
-		id.addMouseListener(CO.selectObject(id,loginPanel));
-		password.addMouseListener(CO.selectObject(password,loginPanel));
-		idTF.addMouseListener(CO.selectObject(idTF,loginPanel));
-		passwordTF.addMouseListener(CO.selectObject(passwordTF,loginPanel));
-		loginBtn.addMouseListener(CO.selectObject(loginBtn,loginPanel));
-		regiBtn.addMouseListener(CO.selectObject(regiBtn,loginPanel));
-		
-		exitBtn.addMouseListener(CO.selectObject(exitBtn,mainPanel));
-		
-		this.addMouseListener(new MouseAdapter() {
+	MouseAdapter moveObject(JButton object) {
+		MouseAdapter m2=new MouseAdapter() {
+			
 			@Override
-			public void mousePressed(MouseEvent e) {
+			public void mouseDragged(MouseEvent e) {
 				// TODO Auto-generated method stub
-				System.out.println(getMousePosition());
+				
+				object.move((int)getMousePosition().getX()-40,(int)getMousePosition().getY()-40);
+				System.out.println(object.getX()+","+object.getY());
 			}
-		});
+			
+		};
+		return m2;
+	};
+	
+	MouseAdapter moveObject(JLabel object) {
+		MouseAdapter m2=new MouseAdapter() {
+			
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+				object.move((int)getMousePosition().getX()-40,(int)getMousePosition().getY()-40);
+				System.out.println(object.getX()+","+object.getY());
+			}
+			
+		};
+		return m2;
+	};
+	
+	MouseAdapter moveObject(JPanel object) {
+		MouseAdapter m2=new MouseAdapter() {
+			
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+				object.move((int)getMousePosition().getX()-40,(int)getMousePosition().getY()-40);
+				System.out.println(object.getX()+","+object.getY());
+			}
+			
+		};
+		return m2;
+	};
+	
+	MouseAdapter moveObject(JTextField object) {
+		MouseAdapter m2=new MouseAdapter() {
+			
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+				object.move((int)getMousePosition().getX()-40,(int)getMousePosition().getY()-40);
+				System.out.println(object.getX()+","+object.getY());
+			}
+			
+		};
+		return m2;
+	};
+
+	
+	MouseListener selectObject(JButton object) {
+
+		MouseListener m1=new MouseAdapter() {
+			int func=-1;
+			MouseAdapter m2=moveObject(object);
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+				if(func==-1) {
+					mainPanel.addMouseMotionListener(m2); 
+					System.out.println("리스너 등록");
+				}
+				else if(func==1) {
+					mainPanel.removeMouseMotionListener(m2);
+					System.out.println("리스너 삭제");
+				}
+				func*=-1;
+			}
+		};
+		return m1;
+	};
+	
+	MouseListener selectObject(JLabel object) {
+
+		MouseListener m1=new MouseAdapter() {
+			int func=-1;
+			MouseAdapter m2=moveObject(object);
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+				if(func==-1) {
+					mainPanel.addMouseMotionListener(m2); 
+					System.out.println("리스너 등록");
+				}
+				else if(func==1) {
+					mainPanel.removeMouseMotionListener(m2);
+					System.out.println("리스너 삭제");
+				}
+				func*=-1;
+			}
+		};
+		return m1;
+	};
+	
+	MouseListener selectObject(JPanel object) {
+
+		MouseListener m1=new MouseAdapter() {
+			int func=-1;
+			MouseAdapter m2=moveObject(object);
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+				if(func==-1) {
+					mainPanel.addMouseMotionListener(m2); 
+					System.out.println("리스너 등록");
+				}
+				else if(func==1) {
+					mainPanel.removeMouseMotionListener(m2);
+					System.out.println("리스너 삭제");
+				}
+				func*=-1;
+			}
+		};
+		return m1;
+	};
+	
+	MouseListener selectObject(JTextField object) {
+
+		MouseListener m1=new MouseAdapter() {
+			int func=-1;
+			MouseAdapter m2=moveObject(object);
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+				if(func==-1) {
+					mainPanel.addMouseMotionListener(m2); 
+					System.out.println("리스너 등록");
+				}
+				else if(func==1) {
+					mainPanel.removeMouseMotionListener(m2);
+					System.out.println("리스너 삭제");
+				}
+				func*=-1;
+			}
+		};
+		return m1;
+	};
+
+	
+	public JPanel setPanel(int sizeX,int sizeY,int coordiX,int coordiY) {
+		JPanel New=new JPanel();
+		New.setSize(sizeX,sizeY);
+		New.setLocation(coordiX,coordiY);
+		New.addMouseListener(selectObject(New));
+		return New;
+	}
+	
+	public JLabel setLabel(int sizeX,int sizeY,int coordiX,int coordiY,String Text) {
+		JLabel New=new JLabel(Text);
+		New.setSize(sizeX,sizeY);
+		New.setLocation(coordiX,coordiY);
+		New.addMouseListener(selectObject(New));
+		return New;
+	}
+	
+	public JTextField setTextField(int sizeX,int sizeY,int coordiX,int coordiY,int length) {
+		JTextField New=new JTextField(length);
+		New.setSize(sizeX,sizeY);
+		New.setLocation(coordiX,coordiY);
+		New.addMouseListener(selectObject(New));
+		return New;
+	}
+	
+	public JButton setButton(int sizeX,int sizeY,int coordiX,int coordiY,String Text) {
+		JButton New=new JButton(Text);
+		New.setSize(sizeX,sizeY);
+		New.setLocation(coordiX,coordiY);
+		New.addMouseListener(selectObject(New));
+		return New;
 	}
 
 	
-	public void resizeGui()
+	// Component 변수 선언
+
+	
+	JLabel title=setLabel			(width*3/10, height/6, width*4/10, height/60*5, "POSmachine");
+	JLabel id=setLabel				(width/10, height/30, width*60/1000, height*30/600, "아 이 디  : ");
+	JLabel password=setLabel		(width/10, height/30, width*60/1000, height*70/600, "패스워드 : ");
+	JTextField idTF=setTextField	(width/1000*100, height/600*20, width/1000*150, height/600*30, 10);
+	JTextField passwordTF=setTextField(width/1000*100, height/600*20, width/1000*150, height/600*70, 10);
+
+	JButton loginBtn=setButton(width/1000*90, height/600*30, width/1000*40, height/600*110, "로그인");	
+	JButton regiBtn=setButton(width/1000*90, height/600*30, width/1000*150, height/600*110, "회원가입"); 
+	JButton exitBtn=setButton(width/1000*90, height/600*30, width/1000*850, height/600*500, "종료");
+	
+	
+	
+	JPanel mainPanel= new JPanel();
+	JPanel loginPanel= setPanel(width*3/10,height/4, width*35/100,height*225/1000);
+	JPanel titlePanel= setPanel(width*4/10,height*50/600, width*3/10,height/20);
+	
+	public void setGui()
 	{
 		resize(titlePanel,width*4/10,height*5/60, width*3/10,height/20);
 		resize(loginPanel,width*3/10,height/4, width*7/20,height*9/40);
@@ -108,7 +270,7 @@ public abstract class FrameTemplete2 extends JFrame {
 	}
 	
 	
-	public void addGui()
+	public void showGui()
 	{
 		con=getContentPane();
 		con.setLayout(new GridLayout(1,1));
@@ -119,15 +281,26 @@ public abstract class FrameTemplete2 extends JFrame {
 		mainPanel.add(loginPanel);
 		mainPanel.add(titlePanel);
 		mainPanel.add(exitBtn);
-
+//		exitBtn.addActionListener(new ActionListener() {			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				// TODO Auto-generated method stub
+//				System.exit(0);
+//
+//			}
+//		});
 		exitBtn.setFont(new Font("맑은 고딕",Font.BOLD, 12));
-				
+		
+		
+		
 		titlePanel.setLayout(new GridBagLayout());
 		title.setForeground(Color.white);
 		title.setFont(new Font("맑은 고딕",Font.BOLD, 20));
 		titlePanel.add(title);
 		titlePanel.setBackground(new Color(100,100,100));
-				
+		
+		
+		
 		loginPanel.setLayout(null);
 		loginPanel.add(id);
 		loginPanel.add(password);
@@ -136,44 +309,28 @@ public abstract class FrameTemplete2 extends JFrame {
 		loginPanel.add(idTF);
 		loginPanel.add(passwordTF);
 		loginPanel.add(loginBtn);
-
-		loginPanel.add(regiBtn);		
-	}
-	
-
-	
-	
-	public void guiFunction()
-	{
-		loginBtn.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-			String id = "1";
-			String pass = "1";
-			if (id.equals(idTF.getText()) && pass.equals(passwordTF.getText())) {
-
-				JOptionPane.showMessageDialog(null, "로그인 성공");
-			
-			} else {
-
-				JOptionPane.showMessageDialog(null, " 로그인 실패 ");
-			}
-		}
-	});
+//		loginBtn.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				String id = "1";
+//				String pass = "1";
+//				if (id.equals(idTF.getText()) && pass.equals(passwordTF.getText())) {
+//
+//					JOptionPane.showMessageDialog(null, "로그인 성공");
+//				
+//				} else {
+//
+//					JOptionPane.showMessageDialog(null, " 로그인 실패 ");
+//				}
+//			}
+//		});
+		loginPanel.add(regiBtn);
 		
-		exitBtn.addActionListener(new ActionListener() {			
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			System.exit(0);
-
-		}
-	});
 	}
 
 
 
 	
-	public FrameTemplete2() {
+	dpublic FrameTemplete2() {
 		
       
         this.setTitle("SLR의 PosMachine");
@@ -182,8 +339,13 @@ public abstract class FrameTemplete2 extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		this.setSize(width, height);
 		
-		this.addComponentListener(new ComponentAdapter() {
-
+		this.addComponentListener(new ComponentListener() {
+			
+			@Override
+			public void componentShown(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
 			
 			@Override
 			public void componentResized(ComponentEvent e) {
@@ -192,13 +354,37 @@ public abstract class FrameTemplete2 extends JFrame {
 				height=getHeight();
 				width=getWidth();
 				
-				resizeGui();
+				setGui();
 				//showGui();
 			}
 			
+			@Override
+			public void componentMoved(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void componentHidden(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 		
+		this.addMouseListener(new MouseAdapter() {
+			
 
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println(getMousePosition());
+			}
+			
+
+				
+			
+		});
 		
 	}  
 	
