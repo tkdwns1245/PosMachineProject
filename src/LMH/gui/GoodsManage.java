@@ -16,23 +16,18 @@ public class GoodsManage extends FrameTemplete2 implements ActionListener{
 		GoodsManage fr = new GoodsManage();
 		fr.timeGet();
 		fr.run();
-		
 		}
 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
-	public void CreateComponent() {
-		// TODO Auto-generated method stub
-		
+	public void CreateComponent() {	
 	}
 
-
+	
 	@Override
 	public void run() {
 		while(true) {

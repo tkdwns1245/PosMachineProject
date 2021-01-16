@@ -40,8 +40,8 @@ public abstract class FrameTemplete2 extends JFrame implements Runnable {
 	JPanel mainPanel= new JPanel();
 	JPanel loginPanel= CO.setPanel(width*3/10,height/4, width*35/100,height*225/1000);
 	JPanel titlePanel= CO.setPanel(width*4/10,height*50/600, width*3/10,height/20);
-	// 시간판넬
-	JPanel timePanel = CO.setPanel(width*25/100,height*25/600, width*5/100,height*1/10);
+	// 시간판넬 생성
+	JPanel timePanel = CO.setPanel(width*20/100,height*25/600, width*5/100,height*1/10);
 	
 	JLabel title=CO.setLabel(width*3/10, height/6, width*4/10, height/60*5, "POSmachine");
 	JLabel id=CO.setLabel(width/10, height/30, width*60/1000, height*30/600, "아 이 디  : ");
@@ -145,8 +145,24 @@ public abstract class FrameTemplete2 extends JFrame implements Runnable {
 
 		loginPanel.add(regiBtn);		
 	}
-
+// timeGet 메서드 생성
 	public void timeGet()
+	{
+		
+		con=getContentPane();
+		con.add(mainPanel);
+		
+		mainPanel.setLayout(null);
+		mainPanel.setBackground(new Color(155,155,155));
+		mainPanel.add(timePanel);
+		timePanel.add(time);
+		time.setBackground(new Color(52, 152, 219));
+	
+		mainPanel.add(exitBtn);
+		
+}
+	
+	public void Category()
 	{
 		
 		con=getContentPane();
