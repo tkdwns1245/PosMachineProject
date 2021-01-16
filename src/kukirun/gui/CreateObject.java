@@ -26,19 +26,32 @@ import javax.swing.event.AncestorListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+
 public class CreateObject extends JFrame{
 
 	static int guiHelpFunction=0;
-	JPanel mainPanel;
-	float initX,initY;
+	JPanel mainPanel=new JPanel();
+	float initX=1000,initY=600;
 	
+
 	
-	public CreateObject(JPanel panel,int width,int height)
-	{
-		this.mainPanel=panel;
-		this.initX=width;
-		this.initY=height;
+
+	public CreateObject() {
+		// TODO Auto-generated constructor stub
+		mainPanel.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println(mainPanel.getMousePosition());
+			}
+			
+		});
+
 	}
+	
+
+
 	
 	MouseAdapter moveObject(JButton object,JPanel mainPanel) {
 		MouseAdapter m2=new MouseAdapter() {
@@ -222,14 +235,15 @@ public class CreateObject extends JFrame{
 		New.setLocation(coordiX,coordiY);
 		if(guiHelpFunction==1) New.addMouseListener(selectObject(New, panel));
 		
-		if(panel.getLayout()==null)
-		{
+		
 		mainPanel.addComponentListener(new ComponentAdapter() {
 
-		
+			
 			@Override
 			public void componentResized(ComponentEvent e) {
 				// TODO Auto-generated method stub
+				if(panel.getLayout()==null)
+				{
 				float presentX=mainPanel.getWidth();
 				float presentY=mainPanel.getHeight();
 				
@@ -237,9 +251,10 @@ public class CreateObject extends JFrame{
 				float ratioY=presentY/initY; if(ratioY<1) ratioY=1;
 
 				re_size(New,(int) (sizeX*ratioX),(int) (sizeY*ratioY),(int) (coordiX*ratioX),(int) (coordiY*ratioY));
+				}
 			}
 		});
-		}
+		
 		
 		return New;
 	}
@@ -250,13 +265,14 @@ public class CreateObject extends JFrame{
 		New.setSize(sizeX,sizeY);
 		New.setLocation(coordiX,coordiY);
 		if(guiHelpFunction==1) New.addMouseListener(selectObject(New, panel));
+
 		
-		if(panel.getLayout()==null)
-		{
 		mainPanel.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentResized(ComponentEvent e) {
 				// TODO Auto-generated method stub
+				if(panel.getLayout()==null)
+				{
 				float presentX=mainPanel.getWidth();
 				float presentY=mainPanel.getHeight();
 				
@@ -266,10 +282,10 @@ public class CreateObject extends JFrame{
 			
 				New.setFont(new Font(New.getFont().getName(), New.getFont().getStyle(),(int)(fontsize*ratioX)));
 				re_size(New,(int) (sizeX*ratioX),(int) (sizeY*ratioY),(int) (coordiX*ratioX),(int) (coordiY*ratioY));
-
+				}
+				
 			}
 		});
-		}
 		
 		
 		return New;
@@ -281,13 +297,14 @@ public class CreateObject extends JFrame{
 		New.setLocation(coordiX,coordiY);
 		if(guiHelpFunction==1) New.addMouseListener(selectObject(New, panel));
 		
-		if(panel.getLayout()==null)
-		{
+		
 		mainPanel.addComponentListener(new ComponentAdapter() {
 
 			@Override
 			public void componentResized(ComponentEvent e) {
 				// TODO Auto-generated method stub
+				if(panel.getLayout()==null)
+				{
 				float presentX=mainPanel.getWidth();
 				float presentY=mainPanel.getHeight();
 
@@ -295,9 +312,10 @@ public class CreateObject extends JFrame{
 				float ratioY=presentY/initY; if(ratioY<1) ratioY=1;
 
 				re_size(New,(int) (sizeX*ratioX),(int) (sizeY*ratioY),(int) (coordiX*ratioX),(int) (coordiY*ratioY));
+				}
 			}
 		});
-		}
+		
 		
 		return New;
 	}
@@ -311,13 +329,14 @@ public class CreateObject extends JFrame{
 		if(guiHelpFunction==1) New.addMouseListener(selectObject(New, panel));
 		
 		
-		if(panel.getLayout()==null)
-		{
+	
 		mainPanel.addComponentListener(new ComponentAdapter() {
 
 			@Override
 			public void componentResized(ComponentEvent e) {
 				// TODO Auto-generated method stub
+				if(panel.getLayout()==null)
+				{
 				float presentX=mainPanel.getWidth();
 				float presentY=mainPanel.getHeight();
 				
@@ -326,18 +345,14 @@ public class CreateObject extends JFrame{
 				
 				New.setFont(new Font(New.getFont().getName(), New.getFont().getStyle(),(int)(fontsize*ratioX)));
 				re_size(New,(int) (sizeX*ratioX),(int) (sizeY*ratioY),(int) (coordiX*ratioX),(int) (coordiY*ratioY));
+				}
 			}
 		});
-		}
+		
 		
 		return New;
 	}
-	
-	
 
-	
-	
-	
 }
 
 

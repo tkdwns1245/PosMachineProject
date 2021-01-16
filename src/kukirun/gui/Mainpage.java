@@ -26,34 +26,27 @@ import javax.swing.JTextField;
 import java.awt.*;
 
 
-public class Mainpage extends JFrame { 
-	static Container con;
-	static int width=1000; //필수 요소
-	static int height=600; //필수 요소
+public class Mainpage extends CreateObject { 
 	
+	Container con;
+	
+	// Component 변수 선언	
 
-	// Component 변수 선언
+	JPanel loginPanel= setPanel(300,150,350,153,mainPanel);
+	JPanel titlePanel= setPanel(400,50, 300,30,mainPanel);
+	
+	JLabel title=setLabel			(300, 100, 400, 50, "POSmachine",mainPanel,20);
+	JLabel id=setLabel				(100, 20, 60, 30, "아 이 디  : ",loginPanel,13);
+	JLabel password=setLabel			(100, 20, 60, 70, "패스워드 : ",loginPanel,13);
+	JTextField idTF=setTextField		(100, 20, 150, 30, 10,loginPanel);
+	JTextField passwordTF=setTextField(100, 20, 150, 70, 10,loginPanel);
 
-	JPanel mainPanel= new JPanel(); //필수 요소
-	CreateObject CO=new CreateObject(mainPanel,width,height); //필수 요소
-	
-
-	JPanel loginPanel= CO.setPanel(300,150,350,153,mainPanel);
-	JPanel titlePanel= CO.setPanel(400,50, 300,30,mainPanel);
-	
-	JLabel title=CO.setLabel			(300, 100, 400, 50, "POSmachine",mainPanel,20);
-	JLabel id=CO.setLabel				(100, 20, 60, 30, "아 이 디  : ",loginPanel,13);
-	JLabel password=CO.setLabel			(100, 20, 60, 70, "패스워드 : ",loginPanel,13);
-	JTextField idTF=CO.setTextField		(100, 20, 150, 30, 10,loginPanel);
-	JTextField passwordTF=CO.setTextField(100, 20, 150, 70, 10,loginPanel);
-
-	JButton loginBtn=CO.setButton(90, 30, 40,110, "로그인",loginPanel,12);	
-	JButton regiBtn=CO.setButton(90, 30, 180, 110, "회원가입",loginPanel,12); 
-	JButton exitBtn=CO.setButton(90, 30, 850, 500, "종료",mainPanel,12);
+	JButton loginBtn=setButton(90, 30, 40,110, "로그인",loginPanel,12);	
+	JButton regiBtn=setButton(90, 30, 180, 110, "회원가입",loginPanel,12); 
+	JButton exitBtn=setButton(90, 30, 850, 500, "종료",mainPanel,12);
 	
 	
-	public void addGui()
-	{
+	public Mainpage() {
 		con=getContentPane();
 		con.setLayout(new GridLayout(1,1));
 		con.add(mainPanel);
@@ -83,6 +76,9 @@ public class Mainpage extends JFrame {
 
 		loginPanel.add(regiBtn);	
 		
+		con.setVisible(false);
+		con.setSize((int)initX, (int)initY);
+		
 		this.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -90,13 +86,13 @@ public class Mainpage extends JFrame {
 				System.out.println(getMousePosition());
 			}
 		});
-	}
+	
 	
 
 	
-	
-	public void guiFunction()
+	if(CreateObject.guiHelpFunction!=1) //function
 	{
+	
 		loginBtn.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			String id = "1";
@@ -130,26 +126,17 @@ public class Mainpage extends JFrame {
 		}
 	});
 		
-		
-		
+	}
+        //this.setTitle("메인");
+     // this.setResizable(true);
+      //this.setVisible(true);
+      //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+      //this.setSize(1000, 600);
+	
 		
 	}
 
 
-
-	
-	public Mainpage() {
-		
-      
-        this.setTitle("SLR의 PosMachine");
-		this.setResizable(true);
-		this.setVisible(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-		this.setSize(width, height);
-
-		
-	}  
-	
 
 
 }
