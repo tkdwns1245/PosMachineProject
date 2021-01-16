@@ -1,4 +1,4 @@
-package kukirun.gui;
+package LMH.gui;
 
 import java.awt.*;
 import java.awt.Desktop.Action;
@@ -46,6 +46,14 @@ public class LoginFrame2 extends FrameTemplete2 implements ActionListener {
 
 	@Override
 	public void CreateComponent() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void run() {
 		// TODO Auto-generated method stub
 		
 	}

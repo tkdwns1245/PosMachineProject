@@ -1,4 +1,4 @@
-package kukirun.gui;
+package LMH.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +13,8 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.nio.file.AtomicMoveNotSupportedException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,7 +28,7 @@ import javax.swing.JTextField;
 import java.awt.*;
 
 
-public abstract class FrameTemplete2 extends JFrame { 
+public abstract class FrameTemplete2 extends JFrame implements Runnable { 
 	Container con;
 	static int width=1000;
 	static int height=600;
@@ -38,10 +40,14 @@ public abstract class FrameTemplete2 extends JFrame {
 	JPanel mainPanel= new JPanel();
 	JPanel loginPanel= CO.setPanel(width*3/10,height/4, width*35/100,height*225/1000);
 	JPanel titlePanel= CO.setPanel(width*4/10,height*50/600, width*3/10,height/20);
+	// 시간판넬
+	JPanel timePanel = CO.setPanel(width*25/100,height*25/600, width*5/100,height*1/10);
 	
-	JLabel title=CO.setLabel			(width*3/10, height/6, width*4/10, height/60*5, "POSmachine");
-	JLabel id=CO.setLabel				(width/10, height/30, width*60/1000, height*30/600, "아 이 디  : ");
-	JLabel password=CO.setLabel			(width/10, height/30, width*60/1000, height*70/600, "패스워드 : ");
+	JLabel title=CO.setLabel(width*3/10, height/6, width*4/10, height/60*5, "POSmachine");
+	JLabel id=CO.setLabel(width/10, height/30, width*60/1000, height*30/600, "아 이 디  : ");
+	JLabel password=CO.setLabel(width/10, height/30, width*60/1000, height*70/600, "패스워드 : ");
+	JLabel time=CO.setLabel(width/2, height/30, width*60/1000, height*70/600,"");
+	
 	JTextField idTF=CO.setTextField		(width/1000*100, height/600*20, width/1000*150, height/600*30, 10);
 	JTextField passwordTF=CO.setTextField(width/1000*100, height/600*20, width/1000*150, height/600*70, 10);
 
@@ -139,10 +145,23 @@ public abstract class FrameTemplete2 extends JFrame {
 
 		loginPanel.add(regiBtn);		
 	}
-	
 
+	public void timeGet()
+	{
+		
+		con=getContentPane();
+		con.add(mainPanel);
+		
+		mainPanel.setLayout(null);
+		mainPanel.setBackground(new Color(155,155,155));
+		mainPanel.add(timePanel);
+		timePanel.add(time);
+		time.setBackground(new Color(52, 152, 219));
 	
-	
+		mainPanel.add(exitBtn);
+		
+}
+
 	public void guiFunction()
 	{
 		loginBtn.addActionListener(new ActionListener() {
