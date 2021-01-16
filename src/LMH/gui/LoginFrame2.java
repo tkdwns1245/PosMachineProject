@@ -1,4 +1,4 @@
-package kukirun.gui;
+package LMH.gui;
 
 import java.awt.*;
 import java.awt.Desktop.Action;
@@ -26,8 +26,6 @@ public class LoginFrame2 extends FrameTemplete2 implements ActionListener {
 
 
 
-
-
 	// 종료버튼 구현(무명클래스)
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -38,16 +36,24 @@ public class LoginFrame2 extends FrameTemplete2 implements ActionListener {
 	}
 
 	public static void main(String[] args) {
+		CreateObject.guiHelpFunction=1;
 		LoginFrame2 fr = new LoginFrame2();
 		fr.addGui();
-		//fr.guiFunction();
-		//fr.guiHelp();
+		if(CreateObject.guiHelpFunction!=1) fr.guiFunction();
 	
 
 	}
 
 	@Override
 	public void CreateComponent() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void run() {
 		// TODO Auto-generated method stub
 		
 	}
