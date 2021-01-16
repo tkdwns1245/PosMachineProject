@@ -25,15 +25,11 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-<<<<<<< HEAD
 
-=======
->>>>>>> a151eb9 (템플릿 객체에 있던 resize,resizegui,helpgui 를 CreateObject 객체에 병합. 새 템플릿에서 CreateObject를 활용 할 때 반복 작성을 줄여 편의성 증대.)
 
 public class CreateObject extends JFrame{
 
 	static int guiHelpFunction=0;
-<<<<<<< HEAD
 	JPanel mainPanel=new JPanel();
 	float initX=1000,initY=600;
 	
@@ -56,20 +52,6 @@ public class CreateObject extends JFrame{
 	
 
 
-=======
-	JPanel mainPanel;
-	JPanel initPanel;
-	
-	
-	public CreateObject(JPanel panel,int width,int height,JPanel initPanel)
-	{
-		this.mainPanel=panel;
-		this.initPanel=initPanel;
-		
-
-	
-	}
->>>>>>> a151eb9 (템플릿 객체에 있던 resize,resizegui,helpgui 를 CreateObject 객체에 병합. 새 템플릿에서 CreateObject를 활용 할 때 반복 작성을 줄여 편의성 증대.)
 	
 	MouseAdapter moveObject(JButton object,JPanel mainPanel) {
 		MouseAdapter m2=new MouseAdapter() {
@@ -247,70 +229,42 @@ public class CreateObject extends JFrame{
 	}
 
 	
-<<<<<<< HEAD
 	public JPanel setPanel(int sizeX,int sizeY,int coordiX,int coordiY,JPanel panel) { //panel�� �� ��ư�� �Ҽ� �� �ǳ�
-=======
-	public JPanel setPanel(int sizeX,int sizeY,int coordiX,int coordiY,JPanel panel) {
->>>>>>> a151eb9 (템플릿 객체에 있던 resize,resizegui,helpgui 를 CreateObject 객체에 병합. 새 템플릿에서 CreateObject를 활용 할 때 반복 작성을 줄여 편의성 증대.)
 		JPanel New=new JPanel();
 		New.setSize(sizeX,sizeY);
 		New.setLocation(coordiX,coordiY);
 		if(guiHelpFunction==1) New.addMouseListener(selectObject(New, panel));
-<<<<<<< HEAD
 		
 		
-=======
-
->>>>>>> a151eb9 (템플릿 객체에 있던 resize,resizegui,helpgui 를 CreateObject 객체에 병합. 새 템플릿에서 CreateObject를 활용 할 때 반복 작성을 줄여 편의성 증대.)
 		mainPanel.addComponentListener(new ComponentAdapter() {
 
 			
 			@Override
 			public void componentResized(ComponentEvent e) {
 				// TODO Auto-generated method stub
-<<<<<<< HEAD
 				if(panel.getLayout()==null)
 				{
 				float presentX=mainPanel.getWidth();
 				float presentY=mainPanel.getHeight();
 				
-=======
-				float presentX=mainPanel.getWidth();
-				float presentY=mainPanel.getHeight();
-				
-				float initX=initPanel.getWidth();
-				float initY=initPanel.getHeight();
-				
->>>>>>> a151eb9 (템플릿 객체에 있던 resize,resizegui,helpgui 를 CreateObject 객체에 병합. 새 템플릿에서 CreateObject를 활용 할 때 반복 작성을 줄여 편의성 증대.)
 				float ratioX=presentX/initX; if(ratioX<1) ratioX=1;
 				float ratioY=presentY/initY; if(ratioY<1) ratioY=1;
 
 				re_size(New,(int) (sizeX*ratioX),(int) (sizeY*ratioY),(int) (coordiX*ratioX),(int) (coordiY*ratioY));
-<<<<<<< HEAD
 				}
 			}
 		});
 		
 		
-=======
-			}
-		});
-		
->>>>>>> a151eb9 (템플릿 객체에 있던 resize,resizegui,helpgui 를 CreateObject 객체에 병합. 새 템플릿에서 CreateObject를 활용 할 때 반복 작성을 줄여 편의성 증대.)
 		return New;
 	}
 	
 	
-<<<<<<< HEAD
 	public JLabel setLabel(int sizeX,int sizeY,int coordiX,int coordiY,String Text,JPanel panel,int fontsize) { //panel�� �� ��ư�� �Ҽ� �� �ǳ�
-=======
-	public JLabel setLabel(int sizeX,int sizeY,int coordiX,int coordiY,String Text,JPanel panel,int fontsize) {
->>>>>>> a151eb9 (템플릿 객체에 있던 resize,resizegui,helpgui 를 CreateObject 객체에 병합. 새 템플릿에서 CreateObject를 활용 할 때 반복 작성을 줄여 편의성 증대.)
 		JLabel New=new JLabel(Text);
 		New.setSize(sizeX,sizeY);
 		New.setLocation(coordiX,coordiY);
 		if(guiHelpFunction==1) New.addMouseListener(selectObject(New, panel));
-<<<<<<< HEAD
 
 		
 		mainPanel.addComponentListener(new ComponentAdapter() {
@@ -322,28 +276,12 @@ public class CreateObject extends JFrame{
 				float presentX=mainPanel.getWidth();
 				float presentY=mainPanel.getHeight();
 				
-=======
-		
-		mainPanel.addComponentListener(new ComponentAdapter() {
-
-			
-			@Override
-			public void componentResized(ComponentEvent e) {
-				// TODO Auto-generated method stub
-				float presentX=mainPanel.getWidth();
-				float presentY=mainPanel.getHeight();
-				
-				float initX=initPanel.getWidth();
-				float initY=initPanel.getHeight();
-				
->>>>>>> a151eb9 (템플릿 객체에 있던 resize,resizegui,helpgui 를 CreateObject 객체에 병합. 새 템플릿에서 CreateObject를 활용 할 때 반복 작성을 줄여 편의성 증대.)
 				float ratioX=presentX/initX; if(ratioX<1) ratioX=1;
 				float ratioY=presentY/initY; if(ratioY<1) ratioY=1;
 				
 			
 				New.setFont(new Font(New.getFont().getName(), New.getFont().getStyle(),(int)(fontsize*ratioX)));
 				re_size(New,(int) (sizeX*ratioX),(int) (sizeY*ratioY),(int) (coordiX*ratioX),(int) (coordiY*ratioY));
-<<<<<<< HEAD
 				}
 				
 			}
@@ -354,21 +292,11 @@ public class CreateObject extends JFrame{
 	}
 	
 	public JTextField setTextField(int sizeX,int sizeY,int coordiX,int coordiY,int length,JPanel panel) { //panel�� �� ��ư�� �Ҽ� �� �ǳ�
-=======
-
-			}
-		});
-		return New;
-	}
-	
-	public JTextField setTextField(int sizeX,int sizeY,int coordiX,int coordiY,int length,JPanel panel) {
->>>>>>> a151eb9 (템플릿 객체에 있던 resize,resizegui,helpgui 를 CreateObject 객체에 병합. 새 템플릿에서 CreateObject를 활용 할 때 반복 작성을 줄여 편의성 증대.)
 		JTextField New=new JTextField(length);
 		New.setSize(sizeX,sizeY);
 		New.setLocation(coordiX,coordiY);
 		if(guiHelpFunction==1) New.addMouseListener(selectObject(New, panel));
 		
-<<<<<<< HEAD
 		
 		mainPanel.addComponentListener(new ComponentAdapter() {
 
@@ -380,25 +308,10 @@ public class CreateObject extends JFrame{
 				float presentX=mainPanel.getWidth();
 				float presentY=mainPanel.getHeight();
 
-=======
-		mainPanel.addComponentListener(new ComponentAdapter() {
-
-			
-			@Override
-			public void componentResized(ComponentEvent e) {
-				// TODO Auto-generated method stub
-				float presentX=mainPanel.getWidth();
-				float presentY=mainPanel.getHeight();
-				
-				float initX=initPanel.getWidth();
-				float initY=initPanel.getHeight();
-				
->>>>>>> a151eb9 (템플릿 객체에 있던 resize,resizegui,helpgui 를 CreateObject 객체에 병합. 새 템플릿에서 CreateObject를 활용 할 때 반복 작성을 줄여 편의성 증대.)
 				float ratioX=presentX/initX; if(ratioX<1) ratioX=1;
 				float ratioY=presentY/initY; if(ratioY<1) ratioY=1;
 
 				re_size(New,(int) (sizeX*ratioX),(int) (sizeY*ratioY),(int) (coordiX*ratioX),(int) (coordiY*ratioY));
-<<<<<<< HEAD
 				}
 			}
 		});
@@ -408,15 +321,6 @@ public class CreateObject extends JFrame{
 	}
 	
 	public JButton setButton(int sizeX,int sizeY,int coordiX,int coordiY,String Text,JPanel panel,int fontsize) { //panel�� �� ��ư�� �Ҽ� �� �ǳ�
-=======
-			}
-		});
-		
-		return New;
-	}
-	
-	public JButton setButton(int sizeX,int sizeY,int coordiX,int coordiY,String Text,JPanel panel,int fontsize) {
->>>>>>> a151eb9 (템플릿 객체에 있던 resize,resizegui,helpgui 를 CreateObject 객체에 병합. 새 템플릿에서 CreateObject를 활용 할 때 반복 작성을 줄여 편의성 증대.)
 		
 		JButton New=new JButton(Text);
 		
@@ -424,7 +328,6 @@ public class CreateObject extends JFrame{
 		New.setLocation(coordiX,coordiY);
 		if(guiHelpFunction==1) New.addMouseListener(selectObject(New, panel));
 		
-<<<<<<< HEAD
 		
 	
 		mainPanel.addComponentListener(new ComponentAdapter() {
@@ -450,36 +353,6 @@ public class CreateObject extends JFrame{
 		return New;
 	}
 
-=======
-		mainPanel.addComponentListener(new ComponentAdapter() {
-
-			
-			@Override
-			public void componentResized(ComponentEvent e) {
-				// TODO Auto-generated method stub
-				float presentX=mainPanel.getWidth();
-				float presentY=mainPanel.getHeight();
-				
-				float initX=initPanel.getWidth();
-				float initY=initPanel.getHeight();
-				
-				float ratioX=presentX/initX; if(ratioX<1) ratioX=1;
-				float ratioY=presentY/initY; if(ratioY<1) ratioY=1;
-				New.setFont(new Font(New.getFont().getName(), New.getFont().getStyle(),(int)(fontsize*ratioX)));
-				re_size(New,(int) (sizeX*ratioX),(int) (sizeY*ratioY),(int) (coordiX*ratioX),(int) (coordiY*ratioY));
-			}
-		});
-
-		
-		return New;
-	}
-	
-	
-
-	
-	
-	
->>>>>>> a151eb9 (템플릿 객체에 있던 resize,resizegui,helpgui 를 CreateObject 객체에 병합. 새 템플릿에서 CreateObject를 활용 할 때 반복 작성을 줄여 편의성 증대.)
 }
 
 
