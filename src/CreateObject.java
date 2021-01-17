@@ -31,7 +31,6 @@ public class CreateObject extends JFrame{
 
 	static int guiHelpFunction=0;
 	JPanel mainPanel=new JPanel();
-	float initX=1000,initY=600;
 	
 
 	
@@ -51,8 +50,6 @@ public class CreateObject extends JFrame{
 	}
 	
 
-
-	
 	MouseAdapter moveObject(JButton object,JPanel mainPanel) {
 		MouseAdapter m2=new MouseAdapter() {
 			
