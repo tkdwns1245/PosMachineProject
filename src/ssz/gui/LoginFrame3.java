@@ -39,7 +39,7 @@ public class LoginFrame3 extends FrameTemplate3{
 	JButton exitBtn;
 	
 	public LoginFrame3(){
-		init();
+		super.init();
 	}
 	
 	@Override
