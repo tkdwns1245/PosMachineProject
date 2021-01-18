@@ -60,7 +60,7 @@ public class CreateComponentUtil{
 	public void setComponentHelperEvent(JComponent[] component)
 	{
 		
-		for(i=0;i<component.length-1;i++)
+		for(i=0;i<component.length;i++)
 		{
 		JPanel parentPanel = (JPanel)component[i].getParent();
 		if(guiHelpFunction==1)
