@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-//import gui.util.CreateComponentUtil;
+import gui.util.CreateComponentUtil;
 
 public class LoginFrame3 extends FrameTemplate3{
 	JPanel mainPanel;
