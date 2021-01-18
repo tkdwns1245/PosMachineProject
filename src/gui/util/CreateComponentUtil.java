@@ -56,12 +56,16 @@ public class CreateComponentUtil{
 	}
 	
 	//helper 기능을 추가하는 이벤트
-	public void setComponentHelperEvent(JComponent component)
+	int i=0; //컴포넌트 번호
+	public void setComponentHelperEvent(JComponent[] component)
 	{
-		JPanel parentPanel = (JPanel)component.getParent();
+		
+		for(i=0;i<component.length;i++)
+		{
+		JPanel parentPanel = (JPanel)component[i].getParent();
 		if(guiHelpFunction==1)
 		{
-			component.addMouseListener(createMouseAdapter(component, parentPanel));
+			component[i].addMouseListener(createMouseAdapter(component[i], parentPanel));
 		}
 		try {
 			mainPanel.addComponentListener(new ComponentAdapter() {
@@ -76,8 +80,9 @@ public class CreateComponentUtil{
 					
 					float ratioX=presentX/initX; if(ratioX<1) ratioX=1;
 					float ratioY=presentY/initY; if(ratioY<1) ratioY=1;
-	
-					reSize(component,(int) (component.getWidth()*ratioX),(int) (component.getHeight()*ratioY),(int) (component.getX()*ratioX),(int) (component.getY()*ratioY));
+					
+				
+					reSize(component[i],(int) (component[i].getWidth()*ratioX),(int) (component[i].getHeight()*ratioY),(int) (component[i].getX()*ratioX),(int) (component[i].getY()*ratioY));
 					}
 				}
 			});
@@ -85,9 +90,21 @@ public class CreateComponentUtil{
 			npe.printStackTrace();
 			System.out.println("mainPanel 을 setting하고 사용해주세요.");
 		}
+		}
 	}
 	//패널에 등록할 이벤트 어댑터 를 생성하는 함수(클릭 시 moveComponent를 panel 내에서 drag할수 있게 이벤트 추가/제거)
 	public MouseAdapter createMouseAdapter (JComponent moveComponent,JPanel panel) {
+		
+		MouseAdapter getComponentPosition=new MouseAdapter() { //moveComponent가 마우스를 따라가며 panel에서의 위치를 프린트하는 마우스 어뎁터
+
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				// TODO Auto-generated method stub
+				moveComponent.move((int)panel.getMousePosition().getX(),(int)panel.getMousePosition().getY());
+				System.out.println(moveComponent.getX()+","+moveComponent.getY());
+			}
+			
+		};
 		
 		MouseAdapter m1=new MouseAdapter() {
 			int func=-1;
@@ -95,27 +112,15 @@ public class CreateComponentUtil{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				System.out.println("abc");
+			
 				if(func==-1) {
-					panel.addMouseMotionListener(new MouseAdapter() {
-						@Override
-						public void mouseDragged(MouseEvent e) {
-							// TODO Auto-generated method stub
-							moveComponent.move((int)panel.getMousePosition().getX(),(int)panel.getMousePosition().getY());
-							System.out.println(moveComponent.getX()+","+moveComponent.getY());
-						}
-					}); 
+					panel.addMouseMotionListener(getComponentPosition);
+
 					System.out.println("리스너 등록");
 				}
 				else if(func==1) {
-					panel.removeMouseMotionListener(new MouseAdapter() {
-						@Override
-						public void mouseDragged(MouseEvent e) {
-							// TODO Auto-generated method stub
-							moveComponent.move((int)panel.getMousePosition().getX(),(int)panel.getMousePosition().getY());
-							System.out.println(moveComponent.getX()+","+moveComponent.getY());
-						}
-					});
+					panel.removeMouseMotionListener(getComponentPosition);
+
 					System.out.println("리스너 삭제");
 				}
 				func*=-1;

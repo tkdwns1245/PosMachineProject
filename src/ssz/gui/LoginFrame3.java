@@ -1,6 +1,8 @@
 package ssz.gui;
 
 import java.awt.Color;
+
+
 import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -8,14 +10,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import gui.util.CreateComponentUtil;
+//import gui.util.CreateComponentUtil;
 
 public class LoginFrame3 extends FrameTemplate3{
 	JPanel mainPanel;
@@ -58,12 +62,14 @@ public class LoginFrame3 extends FrameTemplate3{
 		passwordTF=ccUtil.createTextField(width/1000*100, height/600*20, width/1000*150, height/600*70, 10);
 		loginBtn=ccUtil.createButton(width/1000*90, height/600*30, width/1000*40, height/600*110, "로그인",10);	
 		regiBtn=ccUtil.createButton(width/1000*90, height/600*30, width/1000*150, height/600*110, "회원가입",10); 
-		exitBtn=ccUtil.createButton(width/1000*90, height/600*30, width/1000*850, height/600*500, "종료",10);
+		exitBtn=ccUtil.createButton(90, 30, 850, 500, "종료",10);
 	}
 	@Override
 	public void initEvent() {
 		//Helper이벤트를 추가
-		ccUtil.setComponentHelperEvent(title);
+		JComponent[] jcomponentArray= {titlePanel,title,time,exitBtn}; //컴포넌트 이동 드래그 기능을 추가할 컴포넌트들
+		
+		ccUtil.setComponentHelperEvent(jcomponentArray);		
 		mainPanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
