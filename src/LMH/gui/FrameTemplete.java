@@ -1,4 +1,4 @@
-package ssz.gui;
+package LMH.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,11 +27,11 @@ import javax.swing.JTextField;
 
 import java.awt.*;
 
-public abstract class FrameTemplate3 extends JFrame { 
+public abstract class FrameTemplete extends JFrame implements Runnable { 
 	protected int width=1000;
 	protected int height=600;
 
-	public FrameTemplate3() {
+	public FrameTemplete() {
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		int x = screen.width / 2-width /2;
 		int y =  screen.height / 2 - height/2;
@@ -40,6 +40,7 @@ public abstract class FrameTemplate3 extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		this.setSize(width, height);
 		this.setLocation(x,y);
+		
 	}  
 	public void init() {
 		initComponent();
@@ -51,3 +52,4 @@ public abstract class FrameTemplate3 extends JFrame {
 	public abstract void addGui();
 	public abstract void initEvent();
 }
+
