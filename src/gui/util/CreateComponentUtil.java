@@ -62,6 +62,7 @@ public class CreateComponentUtil{
 		
 		for(i=0;i<component.length;i++)
 		{
+
 		JPanel parentPanel = (JPanel)component[i].getParent();
 		if(guiHelpFunction==1)
 		{
@@ -91,6 +92,7 @@ public class CreateComponentUtil{
 			System.out.println("mainPanel 을 setting하고 사용해주세요.");
 		}
 		}
+		i=0;
 	}
 	//패널에 등록할 이벤트 어댑터 를 생성하는 함수(클릭 시 moveComponent를 panel 내에서 drag할수 있게 이벤트 추가/제거)
 	public MouseAdapter createMouseAdapter (JComponent moveComponent,JPanel panel) {
