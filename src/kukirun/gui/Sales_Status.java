@@ -11,6 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListCellRenderer;
@@ -37,6 +38,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 import gui.util.CreateComponentUtil;
+import ssz.gui.FrameTemplate3;
 
 
 public class Sales_Status extends FrameTemplate3{
@@ -245,12 +247,16 @@ public class Sales_Status extends FrameTemplate3{
 		
 		
 		if(yearList.getSelectedItem()==null) return;
+		
+		
 	
 		
 		jlistList = new ArrayList<JList>();
 		for(createMonth=0;createMonth<12;createMonth++) {
 			DecimalFormat addcomma=new DecimalFormat("###,###");
 			int month_sales=connection.getMonthSales((int)yearList.getSelectedItem(),(createMonth+1));
+			
+			
 			
 			
 			DefaultListModel<String> lmodel=new DefaultListModel<String>();
@@ -300,7 +306,7 @@ public class Sales_Status extends FrameTemplate3{
 		
 		jlistList.clear();
 		saleCalendarPanel.removeAll();
-		saleCalendarPanel.setLayout(new GridLayout(5,7,5,5));
+		saleCalendarPanel.setLayout(new GridLayout(0,7,5,5));
 		yearMonthDay[0]=(int)yearList.getSelectedItem();
 
 		yearMonthDay[1]=month;
@@ -309,8 +315,53 @@ public class Sales_Status extends FrameTemplate3{
 		
 		if(yearList.getSelectedItem()==null) return;
 		
+		Calendar carlendar=Calendar.getInstance();
+		carlendar.set(yearMonthDay[0], yearMonthDay[1]-1,1);
+		System.out.println(yearMonthDay[0]+","+yearMonthDay[1]+","+yearMonthDay[2]);
+		
+		int startday=carlendar.get(Calendar.DAY_OF_WEEK);
+		int lastday=carlendar.getActualMaximum(Calendar.DATE);
+		System.out.println(startday+","+lastday);
+		
+		String day = null;
+		for(int i=0; i<7;i++) {
+			switch(i) {
+			
+				case 0:day="ÀÏ"; break;
+				case 1:day="¿ù"; break;
+				case 2:day="È­"; break;
+				case 3:day="¼ö"; break;
+				case 4:day="¸ñ"; break;
+				case 5:day="±Ý"; break;
+				case 6:day="Åä"; break;
+								
+			}
+			JLabel tempLabel=new JLabel(day);
+			tempLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			tempLabel.setForeground(Color.white);
+			tempLabel.setFont(new Font("¸¼Àº °íµñ",Font.BOLD, 20));
+			
+			
+			
+			JPanel tempPanel=new JPanel(new GridLayout());
+			tempPanel.setBackground(new Color(0x4F81BD));
+			tempPanel.add(tempLabel);
+			saleCalendarPanel.add(tempPanel);
+			
+			System.out.println(startday+","+yearMonthDay[1]+","+i);
+		}
+
+	
+		for(int i=0; i<startday-1;i++) {
+
+			saleCalendarPanel.add(new JPanel());
+			System.out.println(startday+","+yearMonthDay[1]+","+i);
+		}
+		
 		
 		jlistList = new ArrayList<JList>();
+		
+		
 		for(int createDay=1;createDay<32;createDay++) {
 			int day_sales=connection.getDaySales((int)yearList.getSelectedItem(),month,(createDay));
 			DecimalFormat addcomma=new DecimalFormat("###,###");
@@ -327,7 +378,7 @@ public class Sales_Status extends FrameTemplate3{
 			renderer.setHorizontalAlignment(SwingConstants.CENTER); 
 			renderer.setVerticalAlignment(SwingConstants.CENTER);
 			dayJlist.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-			dayJlist.setFont(new Font("¸¼Àº °íµñ",Font.BOLD, 20));
+			dayJlist.setFont(new Font("¸¼Àº °íµñ",Font.BOLD, 12));
 			
 			dayJlist.setName(String.valueOf(createDay));
 		
