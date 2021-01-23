@@ -1,5 +1,6 @@
 package test;
 
+<<<<<<< HEAD
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -18,6 +19,14 @@ public class Test {
 		ReceiptManage gm = new ReceiptManage();
 		gm.run();
 		System.out.println("뿌엑");
+=======
+import LMH.gui.GoodsManageFrame;
+
+public class Test {
+	public static void man(String[] args) {
+		GoodsManageFrame gmf = new GoodsManageFrame();
+		
+>>>>>>> LMH
 		
 	}
 }

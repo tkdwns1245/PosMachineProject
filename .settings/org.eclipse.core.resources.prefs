@@ -1,4 +1,9 @@
 eclipse.preferences.version=1
 encoding//src/LMH/gui/FrameTemplete.java=UTF-8
+<<<<<<< HEAD
 encoding//src/kukirun/gui/CreateObject.java=UTF-8
 encoding//src/test/Test.java=UTF-8
+=======
+encoding//src/LMH/gui/GoodsManageFrame.java=UTF-8
+encoding//src/ssz/gui/FrameTemplate3.java=UTF-8
+>>>>>>> LMH

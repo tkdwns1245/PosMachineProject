@@ -78,6 +78,7 @@ public class LoginFrame3 extends FrameTemplate3{
 			}
 			
 		});
+<<<<<<< HEAD
 	}
 	@Override
 	public void addGui()
@@ -109,3 +110,36 @@ public class LoginFrame3 extends FrameTemplate3{
 		loginPanel.add(regiBtn);	
 	}
 }
+=======
+	}
+	@Override
+	public void addGui()
+	{
+		this.add(mainPanel);
+		mainPanel.setLayout(null);
+		mainPanel.setBackground(new Color(155,155,155));
+		mainPanel.add(loginPanel);
+		mainPanel.add(titlePanel);
+		mainPanel.add(exitBtn);
+
+		exitBtn.setFont(new Font("¸¼Àº °íµñ",Font.BOLD, 12));
+				
+		titlePanel.setLayout(new GridBagLayout());
+		title.setForeground(Color.white);
+		title.setFont(new Font("¸¼Àº °íµñ",Font.BOLD, 20));
+		titlePanel.add(title);
+		titlePanel.setBackground(new Color(100,100,100));
+				
+		loginPanel.setLayout(null);
+		loginPanel.add(id);
+		loginPanel.add(password);
+		id.setFont(new Font("¸¼Àº °íµñ",Font.PLAIN,13));
+		password.setFont(new Font("¸¼Àº °íµñ",Font.PLAIN,13));
+		loginPanel.add(idTF);
+		loginPanel.add(passwordTF);
+		loginPanel.add(loginBtn);
+
+		loginPanel.add(regiBtn);	
+	}
+}
+>>>>>>> LMH

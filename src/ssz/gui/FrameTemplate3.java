@@ -35,7 +35,11 @@ public abstract class FrameTemplate3 extends JFrame {
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		int x = screen.width / 2-width /2;
 		int y =  screen.height / 2 - height/2;
+<<<<<<< HEAD
         this.setTitle("SLRÀÇ PosMachine");
+=======
+        this.setTitle("SLRÃ€Ã‡ PosMachine");
+>>>>>>> LMH
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		this.setSize(width, height);
