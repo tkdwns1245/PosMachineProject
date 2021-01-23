@@ -38,7 +38,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 import gui.util.CreateComponentUtil;
-import ssz.gui.FrameTemplate3;
 
 
 public class Sales_Status extends FrameTemplate3{
@@ -348,21 +347,21 @@ public class Sales_Status extends FrameTemplate3{
 			tempPanel.add(tempLabel);
 			saleCalendarPanel.add(tempPanel);
 			
-			System.out.println(startday+","+yearMonthDay[1]+","+i);
+
 		}
 
 	
 		for(int i=0; i<startday-1;i++) {
 
 			saleCalendarPanel.add(new JPanel());
-			System.out.println(startday+","+yearMonthDay[1]+","+i);
+
 		}
 		
 		
 		jlistList = new ArrayList<JList>();
 		
 		
-		for(int createDay=1;createDay<32;createDay++) {
+		for(int createDay=1;createDay<lastday+1;createDay++) {
 			int day_sales=connection.getDaySales((int)yearList.getSelectedItem(),month,(createDay));
 			DecimalFormat addcomma=new DecimalFormat("###,###");
 			
