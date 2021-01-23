@@ -1,4 +1,4 @@
-package LMH.gui;
+package ssz.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,20 +27,19 @@ import javax.swing.JTextField;
 
 import java.awt.*;
 
-public abstract class FrameTemplete extends JFrame implements Runnable { 
+public abstract class FrameTemplate3 extends JFrame { 
 	protected int width=1000;
 	protected int height=600;
 
-	public FrameTemplete() {
+	public FrameTemplate3() {
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		int x = screen.width / 2-width /2;
 		int y =  screen.height / 2 - height/2;
-        this.setTitle("SLRÃ€Ã‡ PosMachine");
+        this.setTitle("SLRÀÇ PosMachine");
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		this.setSize(width, height);
 		this.setLocation(x,y);
-		
 	}  
 	public void init() {
 		initComponent();
@@ -52,4 +51,3 @@ public abstract class FrameTemplete extends JFrame implements Runnable {
 	public abstract void addGui();
 	public abstract void initEvent();
 }
-
