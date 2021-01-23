@@ -3,4 +3,14 @@
 =======
 /kukirun/
 /main/
+<<<<<<< HEAD
 >>>>>>> a02256d7ffa9d0c58299af62fea13225852f3c58
+=======
+/data/
+/database/
+/gui/
+/manage/
+/ssz/
+/test/
+/ui/
+>>>>>>> 34a79351b6d6ac43b34fb042c5bdc5709be19d78

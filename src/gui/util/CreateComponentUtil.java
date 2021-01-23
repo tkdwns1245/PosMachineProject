@@ -26,34 +26,62 @@ public class CreateComponentUtil{
 	{
 		this.mainPanel = mainPanel;
 	}
-	public JPanel createPanel(int sizeX,int sizeY,int coordiX,int coordiY) { //panel은 이 버튼이 소속 될 판넬
-		JPanel tmpPanel=new JPanel();
-		tmpPanel.setSize(sizeX,sizeY);
-		tmpPanel.setLocation(coordiX,coordiY);
-		return tmpPanel;
+	
+	public JComponent createJcomponent(String type,int sizeX,int sizeY,int coordiX,int coordiY) {
+		JComponent component;
+		
+		switch(type){
+			case "p" : component=new JPanel(); break;
+			case "P" : component=new JPanel(); break;
+			
+			case "l" : component=new JLabel(); break;
+			case "L" : component=new JLabel(); break;
+			
+			case "tf" : component=new JTextField(); break;
+			case "TF" : component=new JTextField(); break;
+			case "tF" : component=new JTextField(); break;
+			case "Tf" : component=new JTextField(); break;
+			
+			case "b" : component=new JButton(); break;
+			case "B" : component=new JButton(); break;
+			default : component=null;
+		}
+		
+		component.setSize(sizeX,sizeY);
+		component.setLocation(coordiX,coordiY);
+		
+		return component;
+		
 	}
 	
-	public JLabel createLabel(int sizeX,int sizeY,int coordiX,int coordiY,String Text,int fontsize) { //panel은 이 버튼이 소속 될 판넬
-		JLabel New=new JLabel(Text);
-		New.setSize(sizeX,sizeY);
-		New.setLocation(coordiX,coordiY);
-		
-		return New;
-	}
-	
-	public JTextField createTextField(int sizeX,int sizeY,int coordiX,int coordiY,int length) { //panel은 이 버튼이 소속 될 판넬
-		JTextField New=new JTextField(length);
-		New.setSize(sizeX,sizeY);
-		New.setLocation(coordiX,coordiY);
-		
-		return New;
-	}
-	public JButton createButton(int sizeX,int sizeY,int coordiX,int coordiY,String Text,int fontsize) {
-		JButton New=new JButton(Text);
-		New.setSize(sizeX,sizeY);
-		New.setLocation(coordiX,coordiY);
-		return New;
-	}
+//	public JPanel createPanel(int sizeX,int sizeY,int coordiX,int coordiY) { //panel은 이 버튼이 소속 될 판넬
+//		JPanel tmpPanel=new JPanel();
+//		tmpPanel.setSize(sizeX,sizeY);
+//		tmpPanel.setLocation(coordiX,coordiY);
+//		return tmpPanel;
+//	}
+//	
+//	public JLabel createLabel(int sizeX,int sizeY,int coordiX,int coordiY,String Text,int fontsize) { //panel은 이 버튼이 소속 될 판넬
+//		JLabel New=new JLabel(Text);
+//		New.setSize(sizeX,sizeY);
+//		New.setLocation(coordiX,coordiY);
+//		
+//		return New;
+//	}
+//	
+//	public JTextField createTextField(int sizeX,int sizeY,int coordiX,int coordiY,int length) { //panel은 이 버튼이 소속 될 판넬
+//		JTextField New=new JTextField(length);
+//		New.setSize(sizeX,sizeY);
+//		New.setLocation(coordiX,coordiY);
+//		
+//		return New;
+//	}
+//	public JButton createButton(int sizeX,int sizeY,int coordiX,int coordiY,String Text,int fontsize) {
+//		JButton New=new JButton(Text);
+//		New.setSize(sizeX,sizeY);
+//		New.setLocation(coordiX,coordiY);
+//		return New;
+//	}
 	
 	//helper 기능을 추가하는 이벤트
 	int i=0; //컴포넌트 번호
@@ -62,6 +90,7 @@ public class CreateComponentUtil{
 		
 		for(i=0;i<component.length;i++)
 		{
+			if(component[i].getParent()==null)System.out.println("여기"+i);
 		JPanel parentPanel = (JPanel)component[i].getParent();
 		if(guiHelpFunction==1)
 		{
@@ -91,6 +120,7 @@ public class CreateComponentUtil{
 			System.out.println("mainPanel 을 setting하고 사용해주세요.");
 		}
 		}
+		i=0;
 	}
 	//패널에 등록할 이벤트 어댑터 를 생성하는 함수(클릭 시 moveComponent를 panel 내에서 drag할수 있게 이벤트 추가/제거)
 	public MouseAdapter createMouseAdapter (JComponent moveComponent,JPanel panel) {

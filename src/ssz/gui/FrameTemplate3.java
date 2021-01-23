@@ -1,6 +1,7 @@
 package ssz.gui;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
@@ -47,8 +48,8 @@ public abstract class FrameTemplate3 extends JFrame {
 	}  
 	public void init() {
 		initComponent();
-		initEvent();
 		addGui();
+		initEvent();		
 		this.setVisible(true);
 	}
 	public abstract void initComponent();
