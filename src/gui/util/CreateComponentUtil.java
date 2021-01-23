@@ -27,23 +27,23 @@ public class CreateComponentUtil{
 		this.mainPanel = mainPanel;
 	}
 	
-	public JComponent createJcomponent(String type,int sizeX,int sizeY,int coordiX,int coordiY,String LabelButtonText,int textFieldLength) {
+	public JComponent createJcomponent(String type,int sizeX,int sizeY,int coordiX,int coordiY) {
 		JComponent component;
 		
 		switch(type){
 			case "p" : component=new JPanel(); break;
 			case "P" : component=new JPanel(); break;
 			
-			case "l" : component=new JLabel(LabelButtonText); break;
-			case "L" : component=new JLabel(LabelButtonText); break;
+			case "l" : component=new JLabel(); break;
+			case "L" : component=new JLabel(); break;
 			
-			case "tf" : component=new JTextField(textFieldLength); break;
-			case "TF" : component=new JTextField(textFieldLength); break;
-			case "tF" : component=new JTextField(textFieldLength); break;
-			case "Tf" : component=new JTextField(textFieldLength); break;
+			case "tf" : component=new JTextField(); break;
+			case "TF" : component=new JTextField(); break;
+			case "tF" : component=new JTextField(); break;
+			case "Tf" : component=new JTextField(); break;
 			
-			case "b" : component=new JButton(LabelButtonText); break;
-			case "B" : component=new JButton(LabelButtonText); break;
+			case "b" : component=new JButton(); break;
+			case "B" : component=new JButton(); break;
 			default : component=null;
 		}
 		
