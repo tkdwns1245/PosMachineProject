@@ -1,21 +1,14 @@
 package ssz.gui;
 
 import java.awt.Color;
-
-
 import java.awt.Font;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -24,6 +17,7 @@ import gui.util.CreateComponentUtil;
 public class LoginFrame3 extends FrameTemplate3{
 	JPanel mainPanel;
 	CreateComponentUtil ccUtil = new CreateComponentUtil();
+	Font plainFont = new Font("",Font.PLAIN,10);
 	
 	JPanel loginPanel;
 	JPanel titlePanel;
@@ -35,8 +29,8 @@ public class LoginFrame3 extends FrameTemplate3{
 	JLabel password;
 	JLabel time;
 	
-	JTextField idTF;
-	JTextField passwordTF;
+	JTextField idTextField;
+	JTextField passwordTextField;
 
 	JButton loginBtn;
 	JButton regiBtn; 
@@ -51,18 +45,39 @@ public class LoginFrame3 extends FrameTemplate3{
 		mainPanel= new JPanel();
 		//Util에  default로 세팅해야 하는함
 		ccUtil.setMainPanel(mainPanel);
-		loginPanel= ccUtil.createPanel(width*3/10,height/4, width*35/100,height*225/1000);
-		titlePanel= ccUtil.createPanel(width*4/10,height*50/600, width*3/10,height/20);
-		timePanel = ccUtil.createPanel(width*25/100,height*25/600, width*5/100,height*1/10);
-		title=ccUtil.createLabel(width*3/10, height/6, width*4/10, height/60*5, "POSmachine",10);
-		id=ccUtil.createLabel(width/10, height/30, width*60/1000, height*30/600, "아 이 디  : ",10);
-		password=ccUtil.createLabel(width/10, height/30, width*60/1000, height*70/600, "패스워드 : ",10);
-		time=ccUtil.createLabel(width/2, height/30, width*60/1000, height*70/600,"",10);
-		idTF=ccUtil.createTextField(width/1000*100, height/600*20, width/1000*150, height/600*30, 10);
-		passwordTF=ccUtil.createTextField(width/1000*100, height/600*20, width/1000*150, height/600*70, 10);
-		loginBtn=ccUtil.createButton(width/1000*90, height/600*30, width/1000*40, height/600*110, "로그인",10);	
-		regiBtn=ccUtil.createButton(width/1000*90, height/600*30, width/1000*150, height/600*110, "회원가입",10); 
-		exitBtn=ccUtil.createButton(90, 30, 850, 500, "종료",10);
+		loginPanel= (JPanel)ccUtil.createJcomponent("p",width*3/10,height/4, width*35/100,height*225/1000);
+		titlePanel= (JPanel)ccUtil.createJcomponent("p",width*4/10,height*50/600, width*3/10,height/20);
+		timePanel = (JPanel)ccUtil.createJcomponent("p",width*25/100,height*25/600, width*5/100,height*1/10);
+		
+		title= (JLabel)ccUtil.createJcomponent("l",width*3/10, height/6, width*4/10, height/60*5);
+		title.setText("POSmachine");
+		title.setFont(plainFont);
+		
+		id= (JLabel)ccUtil.createJcomponent("l",width/10, height/30, width*60/1000, height*30/600);
+		id.setText("아 이 디 : ");
+		id.setFont(plainFont);
+		
+		password= (JLabel)ccUtil.createJcomponent("l",width/10, height/30, width*60/1000, height*70/600);
+		password.setText("패스워드 : ");
+		password.setFont(plainFont);
+		
+		idTextField= (JTextField)ccUtil.createJcomponent("tf",width/1000*100, height/600*20, width/1000*150, height/600*30);
+		idTextField.setColumns(10);
+		
+		passwordTextField= (JTextField)ccUtil.createJcomponent("tf",width/1000*100, height/600*20, width/1000*150, height/600*70);
+		passwordTextField.setColumns(10);
+		
+		loginBtn= (JButton)ccUtil.createJcomponent("b",width/1000*90, height/600*30, width/1000*40, height/600*110);	
+		loginBtn.setText("로그인");
+		loginBtn.setFont(plainFont);
+		
+		regiBtn= (JButton)ccUtil.createJcomponent("b",width/1000*90, height/600*30, width/1000*150, height/600*110); 
+		regiBtn.setText("회원가입");
+		regiBtn.setFont(plainFont);
+		
+		exitBtn= (JButton)ccUtil.createJcomponent("b",90, 30, 850, 500);
+		exitBtn.setText("종료");
+		exitBtn.setFont(plainFont);
 	}
 	@Override
 	public void initEvent() {
@@ -102,8 +117,8 @@ public class LoginFrame3 extends FrameTemplate3{
 		loginPanel.add(password);
 		id.setFont(new Font("맑은 고딕",Font.PLAIN,13));
 		password.setFont(new Font("맑은 고딕",Font.PLAIN,13));
-		loginPanel.add(idTF);
-		loginPanel.add(passwordTF);
+		loginPanel.add(idTextField);
+		loginPanel.add(passwordTextField);
 		loginPanel.add(loginBtn);
 
 		loginPanel.add(regiBtn);	
